@@ -13,6 +13,7 @@ __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
 # Test commit
+# test commit 2
 
 money = 1000.00
 print(money)
