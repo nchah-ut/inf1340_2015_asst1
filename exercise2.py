@@ -11,7 +11,6 @@ __author__ = 'Susan Sim'
 __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
-__version__ = "1.0"
 
 
 def name_that_shape():
@@ -29,13 +28,9 @@ def name_that_shape():
     # print("Error")
 
     # Working code appended from here
-    # TODO: reformat/refactor before submission
-    # TODO: use (if allowed) math library for NaN calls
 
-
-    # Key-Value mapping shapes
+    # Key-Value mapping shapes in dictionary
     shapes = {
-        2: "",
         3: "Triangle",
         4: "Quadrilateral",
         5: "Pentagon",
@@ -47,10 +42,10 @@ def name_that_shape():
     }
 
     while True:
-        # The Frontend
+        # The Frontend - what the user sees
         shape_sides = raw_input("How many sides does your shape have? ")
 
-        # The Backend
+        # The Backend - processes, calculations
         # Sanitize the input, convert values to type 'int'
         shape_sides = shape_sides.strip()  # Strip out trailing spaces
         try:
@@ -63,17 +58,16 @@ def name_that_shape():
 
         # Conditionals for values from 3 .. 10
         if shape_sides < 3 or shape_sides > 10:
-            # TODO: update to just "Error" ?
-            error_message = "Error. Sorry, your value of {} is not valid.".format(shape_sides)
-            print error_message
+            # error_message_v2 = "Error. Sorry, your value of {} is not valid.".format(shape_sides)
+            print "Error"
         else:
+            # User input value used to look up value in shapes dictionary 
             value_message = "{} sides! That's a {}.".format(shape_sides, shapes[shape_sides])
             print value_message
             break
 
 name_that_shape()
 
-# TODO: format tests according to guidelines
 """ Tests
 
 >>> ten
