@@ -60,6 +60,7 @@ def name_that_shape():
         if shape_sides < 3 or shape_sides > 10:
             # error_message_v2 = "Error. Sorry, your value of {} is not valid.".format(shape_sides)
             print "Error"
+            break
         else:
             # User input value used to look up value in shapes dictionary 
             value_message = "{} sides! That's a {}.".format(shape_sides, shapes[shape_sides])
@@ -70,19 +71,46 @@ name_that_shape()
 
 """ Tests
 
->>> ten
-Error
+1. Input: ten
+Expected Output: Error
+Actual Output: Error
 
->>> 10.0
-10 sides! That's a Decagon.
+    >>> ten
+    Error
 
->>> 10
-10 sides! That's a Decagon.
+2. Input: 10.0
+Expected Output: 10 sides! That's a Decagon.
+Actual Output: 10 sides! That's a Decagon.
 
->>> 2
-Error. Sorry, your value of 2 is not valid.
+    >>> 10.0
+    10 sides! That's a Decagon.
 
->>> 13
-Error. Sorry, your value of 13 is not valid.
+3. Input: 10.0
+Expected Output: 10 sides! That's a Decagon.
+Actual Output: 10 sides! That's a Decagon.
+
+    >>> 10
+    10 sides! That's a Decagon.
+
+4. Input: 2
+Expected Output: Error
+Actual Output: Error
+
+    >>> 2
+    Error
+
+4. Input: 13
+Expected Output: Error
+Actual Output: Error
+
+    >>> 13
+    Error
+
+5. Input: " " (whitespace)
+Expected Output: Error
+Actual Output: Error
+
+    >>>
+    Error
 
 """
