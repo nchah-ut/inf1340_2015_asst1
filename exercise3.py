@@ -37,14 +37,15 @@ def diagnose_car():
     q6 = "Does your car have fuel injection? "
 
     # Answers
-    # Variables named based on "a" + decision tree paths
+    # Variables named based on "ans_" + decision tree paths
     ans_yy = "Clean terminals and try starting again."
     ans_yn = "Replace cables and try again."
     ans_ny = "Replace the battery."
     ans_nny = "Check spark plug connections."
     ans_nnnyn = "Check to ensure the choke is opening and closing."
     ans_nnnyy = "Get it in for service."
-    
+
+    # TODO: try JSON
     decision_tree = {
         q1: {"y": {q2:
                       {"y": ans_yy,
