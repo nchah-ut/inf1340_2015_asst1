@@ -42,6 +42,7 @@ def diagnose_car():
     ans_yn = "Replace cables and try again."
     ans_ny = "Replace the battery."
     ans_nny = "Check spark plug connections."
+    ans_nnnn = "Engine is not getting enough fuel. Clean fuel pump."
     ans_nnnyn = "Check to ensure the choke is opening and closing."
     ans_nnnyy = "Get it in for service."
 
@@ -74,47 +75,46 @@ def diagnose_car():
     # TODO: Refactor variable names
     while True:
         answer1 = raw_input(q1)
-        if answer1 == "y":
+        if answer1 == "Y":
             while True:
                 answer2 = raw_input(q2)
-                if answer2 == "y":
+                if answer2 == "Y":
                     print(ans_yy)
                     break
-                elif answer2 == "n":
+                elif answer2 == "N":
                     print(ans_yn)
                     break
                 else:
                     print(error_message.format(q2))
             break
 
-        elif answer1 == "n":
+        elif answer1 == "N":
             while True:
                 answer3 = raw_input(q3)
-                if answer3 == "y":
+                if answer3 == "Y":
                     print(ans_ny)
                     break
-                elif answer3 == "n":
+                elif answer3 == "N":
                     while True:
                         answer4 = raw_input(q4)
-                        if answer4 == "y":
+                        if answer4 == "Y":
                             print(ans_nny)
                             break
-                        elif answer4 == "n":
+                        elif answer4 == "N":
                             while True:
                                 answer5 = raw_input(q5)
-                                if answer5 == "y":
+                                if answer5 == "Y":
                                     answer6 = raw_input(q6)
-                                    if answer6 == "n":
+                                    if answer6 == "N":
                                         print(ans_nnnyn)
                                         break
-                                    elif answer6 == "y":
+                                    elif answer6 == "Y":
                                         print(ans_nnnyy)
                                         break
                                     else:
                                         print(error_message.format(q6))
-                                elif answer5 == "n":
-                                    print("Sorry, there is no diagnosis. Further diagnosis possible if "
-                                          "'YES' to question: 'Does the engine start and then die?'")
+                                elif answer5 == "N":
+                                    print(ans_nnnn)
                                     break
                                 else:
                                     print(error_message.format(q5))
@@ -134,59 +134,69 @@ diagnose_car()
 
 # Testing outcomes
 
-1. Input: y > y
+1. Input: Y > Y
 Expected Output: Clean terminals and try starting again.
 Actual Output:
 
-    Is the car silent when you turn the key? y
-    Are the battery terminals corroded? y
+    Is the car silent when you turn the key? Y
+    Are the battery terminals corroded? Y
     Clean terminals and try starting again.
 
-2. Input: y > n
+2. Input: Y > N
 Expected Output: Replace cables and try again.
 Actual Output:
 
-    Is the car silent when you turn the key? y
-    Are the battery terminals corroded? n
+    Is the car silent when you turn the key? Y
+    Are the battery terminals corroded? N
     Replace cables and try again.
 
-3. Input: n > y
+3. Input: N > Y
 Expected Output: Replace the battery.
 Actual Output:
 
-    Is the car silent when you turn the key? n
-    Does the car make a clicking noise? y
+    Is the car silent when you turn the key? N
+    Does the car make a clicking noise? Y
     Replace the battery.
 
-4. Input n > n > y
+4. Input N > N > Y
 Expected Output: Check spark plug connections.
 Actual Output:
 
-    Is the car silent when you turn the key? n
-    Does the car make a clicking noise? n
-    Does the car crank up but fail to start? y
+    Is the car silent when you turn the key? N
+    Does the car make a clicking noise? N
+    Does the car crank up but fail to start? Y
     Check spark plug connections.
 
-5. Input: n > n > n > y > n
+5. Input: N > N > N >
+Expected Output: Engine is not getting enough fuel. Clean fuel pump.
+Actual Output
+
+    Is the car silent when you turn the key? N
+    Does the car make a clicking noise? N
+    Does the car crank up but fail to start? N
+    Does the engine start and then die? N
+    Engine is not getting enough fuel. Clean fuel pump.
+
+5. Input: N > N > N > Y > N
 Expected Output: Check to ensure the choke is opening and closing.
 Actual Output:
 
-    Is the car silent when you turn the key? n
-    Does the car make a clicking noise? n
-    Does the car crank up but fail to start? n
-    Does the engine start and then die? y
-    Does your car have fuel injection? n
+    Is the car silent when you turn the key? N
+    Does the car make a clicking noise? N
+    Does the car crank up but fail to start? N
+    Does the engine start and then die? Y
+    Does your car have fuel injection? N
     Check to ensure the choke is opening and closing.
 
-6. Input: n > n > n > y > y
+6. Input: N > N > N > Y > Y
 Expected Output: Get it in for service.
 Actual Output:
 
-    Is the car silent when you turn the key? n
-    Does the car make a clicking noise? n
-    Does the car crank up but fail to start? n
-    Does the engine start and then die? y
-    Does your car have fuel injection? y
+    Is the car silent when you turn the key? N
+    Does the car make a clicking noise? N
+    Does the car crank up but fail to start? N
+    Does the engine start and then die? Y
+    Does your car have fuel injection? Y
     Get it in for service.
 
 
