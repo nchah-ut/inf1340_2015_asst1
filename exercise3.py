@@ -26,8 +26,6 @@ def diagnose_car():
 
     """
 
-    # print("The battery cables may be damaged. Replace cables and try again.")
-
     # Questions
     q1 = "Is the car silent when you turn the key? "
     q2 = "Are the battery terminals corroded? "
@@ -46,7 +44,7 @@ def diagnose_car():
     ans_nnnyn = "Check to ensure the choke is opening and closing."
     ans_nnnyy = "Get it in for service."
 
-    # TODO: try JSON
+    # JSON for mapping questions and answers
     decision_tree = {
         q1: {"y": {q2:
                       {"y": ans_yy,
@@ -60,7 +58,9 @@ def diagnose_car():
                                            {"y": {
                                            q6:
                                                {"n": ans_nnnyn,
-                                                "y": ans_nnnyy}}
+                                                "y": ans_nnnyy}
+                                           },
+                                               "n": ans_nnnn
                                            }
                                    }
                              }
@@ -69,9 +69,9 @@ def diagnose_car():
              }
     }
 
-    error_message = "Sorry, please input 'y' or 'n' for the question: '{}'."
+    error_message = "Sorry, please input 'Y' or 'N' for the question: '{}'."
 
-    # TODO: Update code if errors should terminate the program instead of looping for assignment
+    # 2015-10-08: Confirmed in class that errors can lead to previous question being asked again
     # TODO: Refactor variable names
     while True:
         answer1 = raw_input(q1)
@@ -128,7 +128,8 @@ def diagnose_car():
         else:
             print(error_message.format(q1))
 
-diagnose_car()
+# Commenting out function call for pytest
+# diagnose_car()
 
 """ Tests
 
@@ -200,7 +201,7 @@ Actual Output:
     Get it in for service.
 
 
-# Testing errors
+# Testing errors - Update 2015-10-08: errors no longer needed
 
 6. Input: y > do not know > n
 Expected Output: Replace cables and try again.

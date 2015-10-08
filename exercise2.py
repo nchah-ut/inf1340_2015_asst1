@@ -25,8 +25,6 @@ def name_that_shape():
 
     """
 
-    # print("Error")
-
     # Working code appended from here
 
     # Key-Value mapping shapes in dictionary
@@ -63,11 +61,12 @@ def name_that_shape():
             break
         else:
             # User input value used to look up value in shapes dictionary 
-            value_message = "{} sides! That's a {}.".format(shape_sides, shapes[shape_sides])
+            value_message = "{}".format(shapes[shape_sides])
             print value_message
             break
 
-name_that_shape()
+# Commenting out function call for pytest
+# name_that_shape()
 
 """ Tests
 
@@ -79,15 +78,15 @@ Actual Output: Error
     Error
 
 2. Input: 10.0
-Expected Output: 10 sides! That's a Decagon.
-Actual Output: 10 sides! That's a Decagon.
+Expected Output: Decagon.
+Actual Output: Decagon.
 
     >>> 10.0
-    10 sides! That's a Decagon.
+    Decagon
 
 3. Input: 10.0
-Expected Output: 10 sides! That's a Decagon.
-Actual Output: 10 sides! That's a Decagon.
+Expected Output: Decagon.
+Actual Output: Decagon.
 
     >>> 10
     10 sides! That's a Decagon.
