@@ -29,14 +29,14 @@ def name_that_shape():
 
     # Key-Value mapping shapes in dictionary
     shapes = {
-        3: "Triangle",
-        4: "Quadrilateral",
-        5: "Pentagon",
-        6: "Hexagon",
-        7: "Heptagon",
-        8: "Octagon",
-        9: "Enneagon",
-        10: "Decagon"
+        3: "triangle",
+        4: "quadrilateral",
+        5: "pentagon",
+        6: "hexagon",
+        7: "heptagon",
+        8: "octagon",
+        9: "nonagon",
+        10: "decagon"
     }
 
     while True:

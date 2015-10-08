@@ -72,7 +72,6 @@ def diagnose_car():
     error_message = "Sorry, please input 'Y' or 'N' for the question: '{}'."
 
     # 2015-10-08: Confirmed in class that errors can lead to previous question being asked again
-    # TODO: Refactor variable names
     while True:
         answer1 = raw_input(q1)
         if answer1 == "Y":
